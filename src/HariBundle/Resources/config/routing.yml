@@ -1,0 +1,8 @@
+hari_homepage:
+    path:     /
+    defaults: { _controller: HariBundle:Default:index }
+    
+    
+add_youtube:
+    path: /post/add
+    defaults: { _controller: HariBundle:Post:add }

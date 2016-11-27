@@ -1,0 +1,13 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+    hari_user_provider.class: HariBundle\OAuth\OAuthUserProvider
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    oauth_user_provider:
+        class: "%hari_user_provider.class%"
+        arguments: ["@fos_user.user_manager",{facebook: facebook_id, google: google_id}]
+    

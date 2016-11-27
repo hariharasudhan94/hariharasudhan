@@ -1,0 +1,34 @@
+HariBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: HariBundle\Repository\PostRepository
+    id:
+        id:
+            type: bigint
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        text:
+            type: string
+            length: 255
+            nullable: true
+        fileName:
+            type: string
+            length: 255
+        fileType:
+            type: string
+            length: 255
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+        isActive:
+            type: boolean
+    manyToOne:
+        createdBy:
+            targetEntity: HariBundle\Entity\User
+            joinColumn:
+                onDelete: cascade
+    lifecycleCallbacks:
+        prePersist: [ taskBeforePersist ]

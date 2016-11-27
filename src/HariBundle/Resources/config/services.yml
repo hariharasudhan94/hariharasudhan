@@ -1,0 +1,24 @@
+parameters:
+    hari.post.entity: 'HariBundle\Entity\Post'
+
+services:
+    
+    hari.abstract.class:
+        class: HariBundle\EntityHandler\Handler
+        abstract: true
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@security.token_storage"
+            - "@security.authorization_checker"
+        
+             
+    hari.post_handler:
+        class: HariBundle\EntityHandler\PostHandler
+        parent: hari.abstract.class
+        calls:
+            - [ startService, [ '%hari.post.entity%' ] ]
+        
+            
+#    hari.example:
+#        class: HariBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

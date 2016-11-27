@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="keywords" content="HTML5,CSS3,Template" />
+        <meta name="description" content="" />
+        <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+
+        <!-- mobile settings -->
+        <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+        <!-- WEB FONTS : use %7C instead of | (pipe) -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700" rel="stylesheet" type="text/css" />
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('frontend/css/pace.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/layout.css')}}">
+        <link rel="stylesheet" href="{{asset('frontend/css/essentials.css')}}">
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
+    <body class="grain-yellow">
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{asset('frontend/js/pace.js')}}"> </script>
+        <script src="{{asset('frontend/js/facebook.js')}}"> </script>
+        {% endblock %}
+    </body>
+</html>

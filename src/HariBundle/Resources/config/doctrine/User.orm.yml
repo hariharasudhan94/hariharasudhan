@@ -1,0 +1,47 @@
+HariBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: HariBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: true
+        avatar:
+            type: string
+            length: 255
+            nullable: true
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        google_id:
+            type: string
+            length: 255
+            nullable: true
+            column: google_id
+        google_access_token:
+            type: string
+            length: 255
+            nullable: true
+            column: google_access_token
+        facebook_id:
+            type: string
+            length: 255
+            nullable: true
+            column: facebook_id
+        facebook_access_token:
+            type: string
+            length: 255
+            nullable: true
+            column: facebook_access_token
+    lifecycleCallbacks:
+        prePersist: [ taskBeforePersisting ]
