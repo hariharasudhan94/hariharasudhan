@@ -1,6 +1,7 @@
 parameters:
     hari.post.entity: 'HariBundle\Entity\Post'
-
+    google_client: Google_Client
+    
 services:
     
     hari.abstract.class:
@@ -17,7 +18,12 @@ services:
         parent: hari.abstract.class
         calls:
             - [ startService, [ '%hari.post.entity%' ] ]
+       
         
+    hari.post.doctrine.listener:
+        class: HariBundle\EventListener\PostEventListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
             
 #    hari.example:
 #        class: HariBundle\Example

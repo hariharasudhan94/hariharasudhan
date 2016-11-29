@@ -18,8 +18,8 @@ class PostController extends Controller
     */
     public function addAction(Request $request)
     {
-        $client = new \Google_Client();
-        dump($client);die;
+       
+       
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
